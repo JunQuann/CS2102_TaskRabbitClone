@@ -1,1 +1,1 @@
-# cs2102_project
+# CS2102 Project
