@@ -11,10 +11,13 @@
 					<div class="brand">
 						<img src="img/logo.jpg">
 					</div>
+
+                    <?php include("add_user.php") ?>
+
 					<div class="card fat">
 						<div class="card-body">
 							<h4 class="card-title">Register</h4>
-							<form method="POST">
+							<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 
 								<div class="form-group">
 									<label for="name">Name</label>
@@ -32,9 +35,14 @@
 								</div>
 
 								<div class="form-group">
-									<label>
-										<input type="checkbox" name="aggree" value="1"> I agree to the Terms and Conditions
-									</label>
+									<label for="postal_code">Postal Code</label>
+									<input id="postal_code" type="text" pattern="[0-9]{6}" class="form-control" name="postal_code"
+									 oninvalid="this.setCustomValidity('Please enter a valid Postal Code')"
+									 oninput="setCustomValidity('')" required>
+								</div>
+
+								<div class="mb-3 text-danger">
+									<?php echo $duplicateErr ?>
 								</div>
 
 								<div class="form-group no-margin">

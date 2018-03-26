@@ -13,6 +13,9 @@
 						<img src="img/logo.jpg">
 						</a>
 					</div>
+
+                    <?php include('login_auth.php') ?>
+
 					<div class="card fat">
 						<div class="card-body">
 							<h4 class="card-title">Login</h4>
@@ -25,19 +28,13 @@
 								</div>
 
 								<div class="form-group">
-									<label for="password">Password
-										<a href="forgot.php" class="float-right">
-											Forgot Password?
-										</a>
-									</label>
+									<label for="password">Password </label>
 									<input id="password" type="password" class="form-control" name="password" required data-eye>
 								</div>
 
-								<div class="form-group">
-									<label>
-										<input type="checkbox" name="remember"> Remember Me
-									</label>
-								</div>
+                                <div class="mb-3 text-danger">
+                                    <?php echo $loginError ?>
+                                </div>
 
 								<div class="form-group no-margin">
 									<button type="submit" class="btn btn-primary btn-block">
