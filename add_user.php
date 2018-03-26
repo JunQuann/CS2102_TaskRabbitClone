@@ -6,7 +6,7 @@ $duplicateErr = $name = $email = $password = $postal_code = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
      $name = $_POST["name"];
      $email = $_POST["email"];
-     $password = $_POST["password"];
+     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
      $postal_code = $_POST["postal_code"];
 
      $q1 = "INSERT INTO user_account (name, email, password, postal_code) VALUES ('$name', '$email', '$password', '$postal_code')";
