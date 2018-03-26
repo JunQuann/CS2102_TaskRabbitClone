@@ -13,9 +13,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!$r1) {
         $loginError = "This email does not exists";
     } else {
-        $hash = pg_fetch_assoc($r1)['password'];
+        $data = pg_fetch_assoc($r1);
+        $hash = $data['password'];
         if (password_verify($password, $hash)) {
-            $loginError = "You have successfully logged in";
+
+            //Setting session variables for to recognise users.
+            $_SESSION['logged_in'] = true;
+            $_SESSION['name'] = $data['name'];
+            header('Location: home.php');
+            die();
         } else {
             $loginError = "Your password is incorrect";
         }
