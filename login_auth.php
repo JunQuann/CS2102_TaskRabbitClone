@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $r1 = pg_query($db, $q1);
 
     if (!$r1) {
-        $loginError = "This email does not exists";
+        $loginError = "This email does not exist";
     } else {
         $data = pg_fetch_assoc($r1);
         $hash = $data['password'];
