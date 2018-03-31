@@ -6,16 +6,15 @@ $task = [];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    //I don't know how to access the e-mail of the current session, so I just put an e-mail that matches a user account
-    $email = 'kikomoraisleitao@gmail.com';
+    $email = $_SESSION['email'];
 
     if(empty($_POST['task'])) {
         echo "You didn't select any tasks.";
     } else {
-        
+
         $phone = $_POST["phone"];
         $address = $_POST["address"];
-        
+
         $q2 = "INSERT INTO tasker (email, phone, address) VALUES ('$email', '$phone', '$address')";
         $r2 = pg_query($db, $q2);
         if (!$r2) {

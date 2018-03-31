@@ -20,6 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             //Setting session variables for to recognise users.
             $_SESSION['logged_in'] = true;
             $_SESSION['name'] = $data['name'];
+            $_SESSION['email'] = $data['email'];
             header('Location: home.php');
             die();
         } else {

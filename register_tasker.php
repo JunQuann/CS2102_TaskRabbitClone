@@ -1,8 +1,9 @@
+<?php include("login_check.php") ?>
+
 <!DOCTYPE html>
 <html>
 
 <?php require_once("header.php") ?>
-<?php include("login_check.php") ?>
 
 <body class="my-login-page">
 	<section class="h-100">
