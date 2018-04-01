@@ -20,7 +20,7 @@
       <div class="container">
         <div class="row">
           <div class="col-xl-9 mx-auto">
-            <h1 class="mb-5">Build a landing page for your business or project and generate more leads!</h1>
+            <h1 class="mb-5">Get your tasks done today!</h1>
           </div>
           <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
             <form>
@@ -47,8 +47,8 @@
               <div class="features-icons-icon d-flex">
                 <i class="icon-screen-desktop m-auto text-primary"></i>
               </div>
-              <h3>Fully Responsive</h3>
-              <p class="lead mb-0">This theme will look great on any device, no matter the size!</p>
+              <h3>Safe and Easy to Use</h3>
+              <p class="lead mb-0">Most convienent way to cross items off your to-do list!</p>
             </div>
           </div>
           <div class="col-lg-4">
@@ -56,8 +56,8 @@
               <div class="features-icons-icon d-flex">
                 <i class="icon-layers m-auto text-primary"></i>
               </div>
-              <h3>Bootstrap 4 Ready</h3>
-              <p class="lead mb-0">Featuring the latest build of the new Bootstrap 4 framework!</p>
+              <h3>Work Around Your Schedule</h3>
+              <p class="lead mb-0">Simply enter when you want the task done and view avaiable taskers!</p>
             </div>
           </div>
           <div class="col-lg-4">
@@ -65,8 +65,8 @@
               <div class="features-icons-icon d-flex">
                 <i class="icon-check m-auto text-primary"></i>
               </div>
-              <h3>Easy to Use</h3>
-              <p class="lead mb-0">Ready to use with your own content, or customize the source files!</p>
+              <h3>Choose From Skilled Taskers</h3>
+              <p class="lead mb-0">Choose the tasker of your choice based on rating and experience!</p>
             </div>
           </div>
         </div>
@@ -78,17 +78,22 @@
       <div class="container-fluid p-0">
         <div class="row no-gutters">
 
-          <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('img/bg-showcase-1.jpg');"></div>
+          <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('clean-kitchen.jpg');"></div>
+          <div class="col-lg-4 order-lg-2 text-black showcase-text">
+            <h2>Cleaning</h2>
+          	<p class="lead mb-0">Clean your home or business</p>
+          </div>
+          <div class="col-lg-6 order-lg-1 text-black showcase-img" style="background-image: url('Moving-Truck-Maui-wpcf_800x420.png');"></div>
           <div class="col-lg-6 order-lg-1 my-auto showcase-text">
-            <h2>Fully Responsive Design</h2>
-            <p class="lead mb-0">When you use a theme created by Start Bootstrap, you know that the theme will look great on any device, whether it's a phone, tablet, or desktop the page will behave responsively!</p>
+            <h2>Moving</h2>
+            <p class="lead mb-0">Transport or move heavy items</p>
           </div>
         </div>
         <div class="row no-gutters">
           <div class="col-lg-6 text-white showcase-img" style="background-image: url('img/bg-showcase-2.jpg');"></div>
           <div class="col-lg-6 my-auto showcase-text">
-            <h2>Updated For Bootstrap 4</h2>
-            <p class="lead mb-0">Newly improved, and full of great utility classes, Bootstrap 4 is leading the way in mobile responsive web development! All of the themes on Start Bootstrap are now using Bootstrap 4!</p>
+            <h2>Moving</h2>
+            <p class="lead mb-0">Transport or move items</p>
           </div>
         </div>
         <div class="row no-gutters">
