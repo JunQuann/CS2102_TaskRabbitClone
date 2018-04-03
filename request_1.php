@@ -4,7 +4,6 @@
 <html>
 
     <?php require_once('header.php') ?>
-    <link rel="stylesheet" href="css/request.css">
 
     <body class="bg-light">
         <!-- Navigation -->
@@ -38,6 +37,10 @@
             </div>
         </div>
 
+        <?php
+
+         ?>
+
         <?php  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if ($_POST['task_dur'] == 'option1') {
                 $_SESSION['duration'] = 1;
@@ -45,20 +48,40 @@
             if ($_POST['task_dur'] == 'option2') {
                 $_SESSION['duration']  = 2;
             }
-            if ($_POST['task_dur'] == 'option2') {
+            if ($_POST['task_dur'] == 'option3') {
                 $_SESSION['duration']  = 3;
             }
             $_SESSION['task_details']  = $_POST['task_details'];
+            $_SESSION['task'] = $_POST['task'];
+
             header('Location: request_2.php');
             die();
         }?>
 
         <div class="card mx-auto mb-5" style="width: 70rem;">
             <div class="card-body">
-                <h4 class="card-title">How Big is your Task?</h4>
-                <hr>
+
                 <form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
 
+                    <h4 class="card-title">Choose your task here!</h4>
+                    <div class="form-group" style="width: 70%">
+                        <label for="task">Please choose the task closest to what you need</label>
+                        <select class="form-control" name="task" id="task">
+                            <?php
+                                include('db_connect.php');
+
+                                $q1 = "SELECT * FROM tasks";
+                                $r1 = pg_query($db, $q1);
+
+                                while ($row = pg_fetch_row($r1)) {
+                                    echo "<option> $row[0] </option>";
+                                }
+                            ?>
+                        </select>
+                    </div>
+
+                    <h4 class="card-title">How Big is your Task?</h4>
+                    <hr>
                     <div class="form-group mb-5 row">
                         <div class="col-md-4">
                             <div class="form-check form-check-inline">
@@ -83,7 +106,7 @@
                     <h4 class="card-title">Tell us the Details</h4>
 
                     <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Start the conversation and tell your Tasker what you need done. This helps us match you with the best ones for the job. Don't worry, you can edit this later.</label>
+                        <label for="task_details">Start the conversation and tell your Tasker what you need done. This helps us match you with the best ones for the job. Don't worry, you can edit this later.</label>
                         <textarea class="form-control" name="task_details" id="task_details" rows="5" placeholder="Hi! Looking for help updating my 650 sq ft apartment. I’m on the 2nd floor up a short flight of stairs. Please bring an electric drill and ring doorbell number 3. Thanks!" required></textarea>
                     </div>
 
