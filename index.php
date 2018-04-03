@@ -27,7 +27,11 @@
       <div class="container">
         <div class="row">
           <div class="col-xl-9 mx-auto">
+<<<<<<< HEAD
             <h1 class="mb-5">Join Your Community of Taskers</h1>
+=======
+            <h1 class="mb-5">Get your tasks done today!</h1>
+>>>>>>> c11053af3a78e4e7e33a1b5ea7350cd30f154794
           </div>
           <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
             <form>
@@ -54,8 +58,13 @@
               <div class="features-icons-icon d-flex">
                 <i class="icon-screen-desktop m-auto text-primary"></i>
               </div>
+<<<<<<< HEAD
               <h3>Full Support on Desktop and Mobile</h3>
               <p class="lead mb-0">Request a Task on your computer. Accept a Tasker on your phone!</p>
+=======
+              <h3>Safe and Easy to Use</h3>
+              <p class="lead mb-0">Most convienent way to cross items off your to-do list!</p>
+>>>>>>> c11053af3a78e4e7e33a1b5ea7350cd30f154794
             </div>
           </div>
           <div class="col-lg-4">
@@ -63,8 +72,13 @@
               <div class="features-icons-icon d-flex">
                 <i class="icon-layers m-auto text-primary"></i>
               </div>
+<<<<<<< HEAD
               <h3>Request Multiple Tasks</h3>
               <p class="lead mb-0">Our state of the art database handles multiple open tasks at once!</p>
+=======
+              <h3>Work Around Your Schedule</h3>
+              <p class="lead mb-0">Simply enter when you want the task done and view avaiable taskers!</p>
+>>>>>>> c11053af3a78e4e7e33a1b5ea7350cd30f154794
             </div>
           </div>
           <div class="col-lg-4">
@@ -72,9 +86,14 @@
               <div class="features-icons-icon d-flex">
                 <i class="icon-check m-auto text-primary"></i>
               </div>
+<<<<<<< HEAD
               <h3>Satisfaction Guaranteed</h3>
               <p class="lead mb-0"> Our state of the art algorithm matches you with
               competant and dependable taskers in your area. We promise. That's the Task Bunny guarantee.</p>
+=======
+              <h3>Choose From Skilled Taskers</h3>
+              <p class="lead mb-0">Choose the tasker of your choice based on rating and experience!</p>
+>>>>>>> c11053af3a78e4e7e33a1b5ea7350cd30f154794
             </div>
           </div>
         </div>
@@ -86,19 +105,36 @@
       <div class="container-fluid p-0">
         <div class="row no-gutters">
 
+<<<<<<< HEAD
           <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('img/To_Do_List.jpg');"></div>
           <div class="col-lg-6 order-lg-1 my-auto showcase-text">
             <h2>Request a Task</h2>
             <p class="lead mb-0">If you need something done, our intuitive interface allows you to quickly and easily request a task. The taskers in your community will be able to bid on your task and
             you will get the best price for your task. </p>
+=======
+          <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('clean-kitchen.jpg');"></div>
+          <div class="col-lg-4 order-lg-2 text-black showcase-text">
+            <h2>Cleaning</h2>
+          	<p class="lead mb-0">Clean your home or business</p>
+          </div>
+          <div class="col-lg-6 order-lg-1 text-black showcase-img" style="background-image: url('Moving-Truck-Maui-wpcf_800x420.png');"></div>
+          <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+            <h2>Moving</h2>
+            <p class="lead mb-0">Transport or move heavy items</p>
+>>>>>>> c11053af3a78e4e7e33a1b5ea7350cd30f154794
           </div>
         </div>
         <div class="row no-gutters">
           <div class="col-lg-6 text-white showcase-img" style="background-image: url('img/bg-showcase-2.jpg');"></div>
           <div class="col-lg-6 my-auto showcase-text">
+<<<<<<< HEAD
             <h2>Become a Tasker</h2>
             <p class="lead mb-0">As a Tasker, you have the option to see what others are willing to be paid for the same task. This allows you to know exactly what your time is worth!
             No transaction fee ensures that you're getting the most money per task!</p>
+=======
+            <h2>Moving</h2>
+            <p class="lead mb-0">Transport or move items</p>
+>>>>>>> c11053af3a78e4e7e33a1b5ea7350cd30f154794
           </div>
         </div>
         <div class="row no-gutters">
