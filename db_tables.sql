@@ -12,8 +12,8 @@ create table tasks (
 -- can only reference primary key of the referenced table
 create table performs (
     email varchar(100),
-    address varchar(100),
     task_type varchar(50),
+    price numeric,
     foreign key (email) references taskers(email),
     foreign key (task_type) references tasks(task_type),
     primary key (email, task_type)
@@ -30,6 +30,8 @@ create table taskAvailableDatetime (
 
 create table taskers (
     email varchar(100) primary key,
+    name varchar(50) not null,
     phone numeric,
-    address varchar(200)
+    address varchar(200),
+    foreign key (email) references user_account (email)
 )
