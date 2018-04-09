@@ -19,13 +19,12 @@ create table performs (
     primary key (email, task_type)
 )
 
-create table taskAvailableDatetime (
+create table taskerAvailableDatetime (
     email varchar(100),
-    task_type varchar(50),
     availableDate date,
     availableTime time,
-    foreign key (email, task_type) references performs (email, task_type),
-    primary key (email, task_type, availableDate)
+    foreign key (email) references performs (email, task_type),
+    primary key (email, availableDate, availableTime)
 )
 
 create table taskers (
@@ -34,4 +33,20 @@ create table taskers (
     phone numeric,
     address varchar(200),
     foreign key (email) references user_account (email)
+)
+
+CREATE TYPE status AS ENUM ('PENDING', 'ACCEPTED', 'REJECTED');
+
+create table userTaskerTaskPair (
+    user_email varchar(100) references user_account(email),
+    tasker_email varchar(100) references taskers(email),
+    task_type varchar(50) references tasks(task_type),
+    tasker varchar(50)
+    chosen_date date,
+    chosen_time time,
+    address varchar(200),
+    duration numeric,
+    task_details varchar(1000),
+    status status,
+    primary key (user_email, tasker_email, task_type, chosen_date, chosen_time)
 )

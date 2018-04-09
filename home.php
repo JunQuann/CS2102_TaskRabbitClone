@@ -41,6 +41,67 @@
             <a href="register_tasker.php" class="btn btn-primary btn-lg">Become a Tasker!</a>
         </header>
 
+        <div class="row mb-4">
+            <div class="col-lg-12 mx-auto">
+                <h3>List of Requested Tasks</h3>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <td>#</td>
+                                            <td>Task</td>
+                                            <td>Date</td>
+                                            <td>Time</td>
+                                            <td>Duration</td>
+                                            <td>Tasker</td>
+                                            <td>Address</td>
+                                            <td>Status</td>
+                                        </tr>
+                                    </thead>
+                                    <?php
+                                        include('db_connect.php');
+                                        $email = $_SESSION['email'];
+                                        $q1 = "SELECT * FROM userTaskerTaskPair WHERE user_email = '$email'";
+                                        $r1 = pg_query($db, $q1);
+                                        $count = 1;
+
+                                        if (pg_num_rows($r1) > 0) {
+                                            while($row = pg_fetch_assoc($r1)) {
+                                    ?>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">
+                                            <?php echo $count; ?>
+                                            </th>
+                                            <td><?php echo $row['task_type'] ?></td>
+                                            <td><?php echo $row['chosen_date'] ?></td>
+                                            <td><?php echo $row['chosen_time'] ?></td>
+                                            <td><?php echo $row['duration'] ?></td>
+                                            <td><?php echo $row['tasker'] ?></td>
+                                            <td><?php echo $row['address'] ?></td>
+                                            <td><?php echo $row['status'] ?></td>
+                                        </tr>
+                                    </tbody>
+                                    <?php
+                                                $count++;
+                                            }
+                                        } else {
+                                            echo "No requests currently";
+                                        }
+                                        pg_close();
+                                    ?>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
         <!-- Page Features -->
         <div class="row text-center">
 

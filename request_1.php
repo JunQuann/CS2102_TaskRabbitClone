@@ -53,6 +53,7 @@
             }
             $_SESSION['task_details']  = $_POST['task_details'];
             $_SESSION['task'] = $_POST['task'];
+            $_SESSION['address'] = $_POST['address'];
 
             header('Location: request_2.php');
             die();
@@ -62,7 +63,11 @@
             <div class="card-body">
 
                 <form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
-
+                    <h4 class="card-title">Address</h4>
+                    <div class="form-group">
+                        <label for="inputAddress">Please input your full address</label>
+                        <input type="text" class="form-control" name="address" id="inputAddress" placeholder="12 Kent Ridge Dr" required>
+                    </div>
                     <h4 class="card-title">Choose your task here!</h4>
                     <div class="form-group" style="width: 70%">
                         <label for="task">Please choose the task closest to what you need</label>

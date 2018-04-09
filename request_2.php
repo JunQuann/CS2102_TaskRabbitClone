@@ -48,6 +48,17 @@
                         <div class="card-body">
                             TASK DATE &amp; TIME:
                         </div>
+
+                        <?php
+                            if (isset($_POST['confirm'])) {
+                                $_SESSION['time'] = $_POST['time'];
+                                $_SESSION['tasker_email'] = $_POST['tasker_email'];
+                                $_SESSION['price'] = $_POST['price'];
+                                $_SESSION['tasker_name'] = $_POST['name'];
+                                header('Location: request_3.php');
+                            }
+                         ?>
+
                             <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post">
                                 <div class="form-group mx-auto" style="width: 80%">
                                     <input type="text" class="form-control" name="availableDate" value=""/>
@@ -78,12 +89,14 @@
                     <?php
                         if (isset($_POST['tasker_availability'])) {
                             include('db_connect.php');
-                            $date = $_POST['availableDate'];
+                            $date = $_SESSION['date'] = $_POST['availableDate'];
                             $task = $_SESSION['task'];
                             $q1 = "SELECT distinct name, price, email FROM performs natural join taskavailabledatetime natural join taskers WHERE task_type = '$task' and availableDate = '$date'";
                             $r1 = pg_query($db, $q1);
+                            $count = 0;
 
                             while($row = pg_fetch_assoc($r1)) {
+                                $count++;
                                 $name = $row['name'];
                                 $price = $row['price'];
                                 $email = $row['email'];
@@ -95,7 +108,7 @@
                                             <div class='d-flex justify-content-between'>
                                                 <h3 class='card-title'>$name</h3>
                                                 <h3>$$price</h3>
-                                                </div>
+                                            </div>
                                                 <hr class='mt-0 mb-4'>
                                                 <h6 class='card-text'>How I can help:</h6>
                                                 <p class='card-text' style='font-size: 14px'>I am quite handy around my own home, and love solving problems. I am methodical and creative in my approach, always looking for the best solutions. Let me to solve your household problems :) Please note that I do not take plumbing tasks.</p>
@@ -107,7 +120,7 @@
                                                 <div class='modal-dialog' role='document'>
                                                     <div class='modal-content'>
                                                         <div class='modal-header'>
-                                                            <h5 class='modal-title' id='exampleModalLabel'>Tasker's Schedule on $date</h5>
+                                                            <h5 class='modal-title' id='exampleModalLabel'>$name's Schedule on $date</h5>
                                                             <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
                                                                 <span aria-hidden='true'>&times;</span>
                                                                 </button>
@@ -116,32 +129,51 @@
 
                                                                 <form method='POST' action='request_2.php'>
 
+                                                                <div class='form-group' style='display:none'>
+                                                                    <input type='text' class='form-control' name='tasker_email' value='$email'/>
+                                                                </div>
+
+                                                                <div class='form-group' style='display:none'>
+                                                                    <input type='text' class='form-control' name='price' value='$price'/>
+                                                                </div>
+
+                                                                <div class='form-group' style='display:none'>
+                                                                    <input type='text' class='form-control' name='name' value='$name'/>
+                                                                </div>
+
                                                                 <div class='form-group' style='width: 70%'>
-                                                                    <label for='task'>Choose a start time from the Tasker’s availability that works for you.</label>
-                                                                    <select class='form-control' name='task' id='task'>";
-                                                                    $q2 = "SELECT availableTime FROM taskAvailableDatetime WHERE email = '$email' AND task_type = '$task' AND availableDate = '$date'";
+                                                                    <label for='time'>Choose a start time from the Tasker’s availability that works for you.</label>
+                                                                    <select class='form-control' name='time' id='time'>";
+                                                                    $q2 = "SELECT availableTime FROM taskAvailableDatetime WHERE email = '$email' AND task_type = '$task' AND availableDate = '$date' ORDER BY availableTime";
                                                                     $r2 = pg_query($db, $q2);
                                                                     while ($row2 = pg_fetch_row($r2)) {
                                                                         $time = $row2[0];
                                                                         echo "<option>$time</option>";
                                                                     }
                                                                     echo "</select>
-                                                                </div>
+                                                                    </div>
+                                                                    <button type='submit' name='confirm' class='btn btn-success mb-2'>Select and Continue</button>
+                                                                </form>
                                                             <div class='modal-footer'>
-                                                                <button type='button' name='confirm' class='btn btn-success' data-dismiss='modal'>Select and Continue</button>
+                                                            <button type='button' class='btn btn-primary' data-dismiss='modal'>
+                                                                Close
+                                                             </button>
                                                             </div>
-                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>";}
+                                if ($count == 0) {
+                                    echo "<div> There are no available Taskers on this date </div>";
+                                }
                             }
                         ?>
                 </div>
             </div>
         </div>
+
 
         <?php include('footer.php') ?>
 
