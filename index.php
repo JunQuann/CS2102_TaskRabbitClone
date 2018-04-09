@@ -8,7 +8,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-light bg-dark static-top">
       <div class="container">
-        <a class="navbar-brand text-white" href="#">CS2102_Project</a>
+        <a class="navbar-brand text-white" href="#">Task Bunny</a>
         <a class="btn btn-primary" href="sign_in.php">Sign In</a>
       </div>
         <a class="btn btn-primary" href="#">Become A Tasker</a>

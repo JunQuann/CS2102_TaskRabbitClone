@@ -1,6 +1,6 @@
 <?php
     // create a database connection
-    $db = pg_connect("host=localhost port=5432 dbname=cs2102-project user=postgres password=cs2102");
+    $db = pg_connect("host=localhost port=5432 dbname=Project1 user=postgres password=prin");
     if (!$db) {
         die("Could not connect to database");
     }
