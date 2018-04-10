@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer class="footer bg-dark">
+<footer class="footer bg-dark" style="position: relative">
   <div class="container">
     <div class="row">
       <div class="col-lg-6 h-100 text-center text-lg-left my-auto">

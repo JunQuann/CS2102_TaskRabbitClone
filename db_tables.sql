@@ -23,7 +23,7 @@ create table taskerAvailableDatetime (
     email varchar(100),
     availableDate date,
     availableTime time,
-    foreign key (email) references performs (email, task_type),
+    foreign key (email) references taskers(email),
     primary key (email, availableDate, availableTime)
 )
 

@@ -8,6 +8,17 @@
 
     <body>
 
+    <?php
+    include('db_connect.php');
+    $email = $_SESSION['email'];
+    $q1 = "SELECT * FROM taskers WHERE email = '$email'";
+    $is_tasker = false;
+    $r1 = pg_query($db, $q1);
+    if (pg_num_rows($r1) > 0) {
+        $is_tasker = true;
+    }
+    ?>
+
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
@@ -22,9 +33,11 @@
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
+                <?php if ($is_tasker) { ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Account</a>
+                        <a class="nav-link" href="tasker_dashboard.php">Tasker's Page</a>
                     </li>
+                <?php } ?>
                 </ul>
             </div>
         </div>
@@ -38,7 +51,9 @@
             <h1 class="display-3">A Warm Welcome, <?php echo $_SESSION['name'] ?>!</h1>
             <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p>
             <a href="request_1.php" class="btn btn-primary btn-lg">Request Task!</a>
+        <?php if (!mail$is_tasker) { ?>
             <a href="register_tasker.php" class="btn btn-primary btn-lg">Become a Tasker!</a>
+        <?php } ?>
         </header>
 
         <div class="row mb-4">
@@ -51,14 +66,14 @@
                                 <table class="table table-hover">
                                     <thead>
                                         <tr>
-                                            <td>#</td>
-                                            <td>Task</td>
-                                            <td>Date</td>
-                                            <td>Time</td>
-                                            <td>Duration</td>
-                                            <td>Tasker</td>
-                                            <td>Address</td>
-                                            <td>Status</td>
+                                            <th>#</th>
+                                            <th>Task</th>
+                                            <th>Date</th>
+                                            <th>Time</th>
+                                            <th>Duration</th>
+                                            <th>Tasker</th>
+                                            <th>Address</th>
+                                            <th>Status</th>
                                         </tr>
                                     </thead>
                                     <?php
@@ -79,7 +94,15 @@
                                             <td><?php echo $row['task_type'] ?></td>
                                             <td><?php echo $row['chosen_date'] ?></td>
                                             <td><?php echo $row['chosen_time'] ?></td>
-                                            <td><?php echo $row['duration'] ?></td>
+                                            <td><?php
+                                            if ($row['duration']  == 1) {
+                                                echo "Small - Est. 1 hr";
+                                            } if ($row['duration'] == 2) {
+                                                echo "Medium - Est. 2 hrs";
+                                            } if ($row['duration'] == 3) {
+                                                echo "Large - Est. 3 hrs";
+                                            }
+                                            ?></td>
                                             <td><?php echo $row['tasker'] ?></td>
                                             <td><?php echo $row['address'] ?></td>
                                             <td><?php echo $row['status'] ?></td>

@@ -18,10 +18,11 @@
             $time = $_SESSION['time'];
             $task = $_SESSION['task'];
             $task_details = $_SESSION['task_details'];
+            $status = "PENDING";
 
             if (isset($_POST['submit'])) {
                 include('db_connect.php');
-                $q1 = "INSERT INTO userTaskerTaskPair VALUES ('$email', '$tasker_email', '$task', '$date', '$time', '$address', '$task_details', '$duration')";
+                $q1 = "INSERT INTO userTaskerTaskPair VALUES ('$email', '$tasker_email', '$task', '$date', '$time', '$address', '$task_details', '$duration', '$status', '$tasker_name')";
                 $r1 = pg_query($db, $q1);
                 if (!$r1) {
                     echo pg_last_error();
@@ -63,7 +64,7 @@
                 </div>
             </div>
 
-            <div class="card mx-auto mb-5" style="width: 55%;">
+            <div class="card mx-auto mb-4" style="width: 55%;">
                 <div class="card-body">
                     <div class='d-flex justify-content-between mb-2'>
                         <h3 class='card-title'><?php echo $task ?></h3>

@@ -91,7 +91,7 @@
                             include('db_connect.php');
                             $date = $_SESSION['date'] = $_POST['availableDate'];
                             $task = $_SESSION['task'];
-                            $q1 = "SELECT distinct name, price, email FROM performs natural join taskavailabledatetime natural join taskers WHERE task_type = '$task' and availableDate = '$date'";
+                            $q1 = "SELECT distinct name, price, email FROM performs natural join taskeravailabledatetime natural join taskers WHERE task_type = '$task' and availableDate = '$date'";
                             $r1 = pg_query($db, $q1);
                             $count = 0;
 
@@ -100,8 +100,6 @@
                                 $name = $row['name'];
                                 $price = $row['price'];
                                 $email = $row['email'];
-                                $q2 = "SELECT availableTime FROM taskAvailableDatetime WHERE email = '$email' AND task_type = '$task' AND availableDate = '$date'";
-                                $r2 = pg_query($db, $q2);
 
                                 echo "<div class='card mb-2'>
                                         <div class='card-body'>
@@ -144,7 +142,7 @@
                                                                 <div class='form-group' style='width: 70%'>
                                                                     <label for='time'>Choose a start time from the Tasker’s availability that works for you.</label>
                                                                     <select class='form-control' name='time' id='time'>";
-                                                                    $q2 = "SELECT availableTime FROM taskAvailableDatetime WHERE email = '$email' AND task_type = '$task' AND availableDate = '$date' ORDER BY availableTime";
+                                                                    $q2 = "SELECT availableTime FROM taskerAvailableDatetime WHERE email = '$email' AND availableDate = '$date' ORDER BY availableTime";
                                                                     $r2 = pg_query($db, $q2);
                                                                     while ($row2 = pg_fetch_row($r2)) {
                                                                         $time = $row2[0];
