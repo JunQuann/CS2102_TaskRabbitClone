@@ -48,13 +48,14 @@
 
         <!-- Jumbotron Header -->
         <header class="jumbotron my-4">
-            <h1 class="display-3">A Warm Welcome, <?php echo $_SESSION['name'] ?>!</h1>
-            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p>
-            <a href="request_1.php" class="btn btn-primary btn-lg">Request Task!</a>
+        	<h1 class="display-3">Welcome to your Taskboard, <?php echo $_SESSION['name'] ?>!</h1>
+        	<p class="lead">You can easily manage your current and future tasks.</p>
+        	<a href="request_1.php" class="btn btn-primary btn-lg">Request a Task!</a>
         <?php if (!$is_tasker) { ?>
-            <a href="register_tasker.php" class="btn btn-primary btn-lg">Become a Tasker!</a>
+        	<a href="register_tasker.php" class="btn btn-primary btn-lg">Become a Tasker!</a>
         <?php } ?>
-        </header>
+    	</header>
+
 
         <div class="row mb-4">
             <div class="col-lg-12 mx-auto">
@@ -124,66 +125,66 @@
             </div>
 
         </div>
-
+	</div>
         <!-- Page Features -->
-        <div class="row text-center">
+    	<section class="page-header">
+    		<div class="container">
+    			<h2 class="mb-5">Learn about our tasks</h2>
+    			<div class="row">
+          			<div class="col-lg-4">
+            			<div class="container-fluid">
+              				<img class="img-fluid" src="img/mounting.png" alt="">
+              				<h5>Wall Mounting</h5>
+              				<p class="font-weight-light mb-0">Mount a tv, mirror, or picture frame</p>
+            			</div>
+         		 	</div>
+          			<div class="col-lg-4">
+            			<div class="container-fluid">
+              				<img class="img-fluid" src="img/truck3.png" alt="">
+              				<h5>Moving and Packing</h5>
+              				<p class="font-weight-light mb-0">Just tell us how big your item(s) are and get them moved with ease</p>
+            			</div>
+          			</div>
+          			<div class="col-lg-4">
+           				<div class="container-fluid">
+             				<img class="img-fluid" src="img/cleaning.jpeg" alt="">
+              				<h5>Cleaning</h5>
+              				<p class="font-weight-light mb-0">Deep clean your home, office, or car</p>
+            			</div>
+          			</div>
+        		</div>
+       			<div class="row">
+          			<div class="col-lg-4">
+            			<div class="container-fluid">
+              				<img class="img-fluid" src="img/dog.png" alt="">
+              				<h5>Pet Care</h5>
+              				<p class="font-weight-light mb-0">From pet-sitting to pet-walking we've got you covered</p>
+           				</div>
+          			</div>
+          			<div class="col-lg-4">
+            			<div class="container-fluid">
+             				<img class="img-fluid" src="img/assembly2.png" alt="">
+              				<h5>Assembling Furniture</h5>
+              				<p class="font-weight-light mb-0">Let our professional taskers put your furniture together</p>
+            			</div>
+          			</div>
+          			<div class="col-lg-4">
+            			<div class="container-fluid">
+              				<img class="img-fluid" src="img/tools2.png" alt="">
+              				<h5>General Handyman</h5>
+              				<p class="font-weight-light mb-0">We'll match you up with a tasker that has the tools needed for your home maintenance</p>
+            			</div>
+          			</div>
+        		</div>
+      		</div>
+    	</section>
 
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card">
-                    <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-                    <div class="card-body">
-                        <h4 class="card-title">Card title</h4>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-                    </div>
-                    <div class="card-footer">
-                        <a href="#" class="btn btn-primary">Find Out More!</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card">
-                    <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-                    <div class="card-body">
-                        <h4 class="card-title">Card title</h4>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
-                    </div>
-                    <div class="card-footer">
-                        <a href="#" class="btn btn-primary">Find Out More!</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card">
-                    <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-                    <div class="card-body">
-                        <h4 class="card-title">Card title</h4>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-                    </div>
-                    <div class="card-footer">
-                        <a href="#" class="btn btn-primary">Find Out More!</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card">
-                    <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-                    <div class="card-body">
-                        <h4 class="card-title">Card title</h4>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
-                    </div>
-                    <div class="card-footer">
-                        <a href="#" class="btn btn-primary">Find Out More!</a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+        
+        
+        
         <!-- /.row -->
 
-    </div>
+
     <!-- /.container -->
 
     <!-- Footer -->
