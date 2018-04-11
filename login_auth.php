@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $q1 = "SELECT * FROM user_account WHERE email = '$email'";
+    $q1 = "SELECT * FROM users WHERE email = '$email'";
     $r1 = pg_query($db, $q1);
 
     if (!$r1) {
