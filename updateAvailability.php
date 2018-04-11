@@ -9,8 +9,8 @@ $success = true;
 include('db_connect.php');
 
 foreach ($dateArr as $date) {
-    $q1 = "DELETE FROM taskerAvailableDatetime WHERE email = '$email' AND availableDate ='$date'";
-    pg_query($db, $q1);
+    // $q1 = "DELETE FROM taskerAvailableDatetime WHERE email = '$email' AND availableDate ='$date'";
+    // pg_query($db, $q1);
     foreach ($timeArr as $time) {
         $q2 = "INSERT INTO taskerAvailableDatetime VALUES ('$email', '$date', '$time')";
         $r2 = pg_query($db, $q2);

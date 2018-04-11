@@ -50,3 +50,30 @@ create table userTaskerTaskPair (
     status status,
     primary key (user_email, tasker_email, task_type, chosen_date, chosen_time)
 )
+
+CREATE FUNCTION delete_old_rows() RETURNS trigger
+    LANGUAGE plpgsql
+    AS $$
+BEGIN
+  DELETE FROM taskerAvailableDatetime WHERE availableDate < NOW()::date;
+  RETURN NULL;
+END;
+$$;
+
+CREATE TRIGGER trigger_delete_old_rows
+    AFTER INSERT ON taskerAvailableDatetime
+    EXECUTE PROCEDURE delete_old_rows();
+
+
+CREATE FUNCTION delete_outdated_requests() RETURNS trigger
+    LANGUAGE plpgsql
+    AS $$
+BEGIN
+  DELETE FROM userTaskerTaskPair WHERE chosen_date < NOW()::date;
+  RETURN NULL;
+END;
+$$;
+
+CREATE TRIGGER trigger_delete_outdated_requests
+    AFTER INSERT OR UPDATE ON userTaskerTaskPair
+    EXECUTE PROCEDURE delete_outdated_requests();
