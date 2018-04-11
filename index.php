@@ -33,13 +33,14 @@
             <form>
               <div class="form-row">
                 <div class="col-12 col-md-9 mb-2 mb-md-0">
-                  <input type="email" class="form-control form-control-lg" placeholder="Need a task done?">
                 </div>
                 <div class="col-12 col-md-3">
                   <button type="submit" class="btn btn-block btn-lg btn-primary">Sign up!</button>
                 </div>
               </div>
             </form>
+            </form> 
+
           </div>
         </div>
       </div>
@@ -120,7 +121,6 @@
             <div class="testimonial-item mx-auto mb-5 mb-lg-0">
               <img class="img-fluid rounded-circle mb-3" src="img/testimonials-1.jpg" alt="">
               <h5>Margaret E.</h5>
-              <p class="font-weight-light mb-0">"Task Rabbit is fantastic! Thanks so much guys!"</p>
             </div>
           </div>
           <div class="col-lg-4">
