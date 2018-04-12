@@ -14,6 +14,7 @@ create table performs (
     email varchar(100),
     task_type varchar(50),
     price numeric,
+    task_description varchar,
     foreign key (email) references taskers(email),
     foreign key (task_type) references tasks(task_type),
     primary key (email, task_type)

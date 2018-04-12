@@ -92,7 +92,7 @@
                             $date = $_SESSION['date'] = $_POST['availableDate'];
                             $task = $_SESSION['task'];
                             $email = $_SESSION['email'];
-                            $q1 = "SELECT distinct name, price, email FROM performs natural join taskeravailabledatetime natural join taskers WHERE task_type = '$task' and availableDate = '$date' and email <> '$email'";
+                            $q1 = "SELECT distinct name, price, email, task_description FROM performs natural join taskeravailabledatetime natural join taskers WHERE task_type = '$task' and availableDate = '$date' and email <> '$email'";
                             $r1 = pg_query($db, $q1);
                             $count = 0;
 
@@ -110,7 +110,7 @@
                                             </div>
                                                 <hr class='mt-0 mb-4'>
                                                 <h6 class='card-text'>How I can help:</h6>
-                                                <p class='card-text' style='font-size: 14px'>I am quite handy around my own home, and love solving problems. I am methodical and creative in my approach, always looking for the best solutions. Let me to solve your household problems :) Please note that I do not take plumbing tasks.</p>
+                                                <p class='card-text' style='font-size: 14px'>$task_description</p>
                                                 <button type='button' class='btn btn-success' data-toggle='modal' data-target='#$email'>
                                                 Check Available Timings
                                                 </button>
