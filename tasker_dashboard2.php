@@ -162,8 +162,8 @@
                             </ul>
                           </div>
                           <div class="modal-footer">
-                            <button type="button" class="btn btn-success" data-dismiss="modal" onclick="taskAccept(true, '<?php echo $row['task_type'];?>', '<?php echo $row['user_email'];?>', '<?php echo $row['chosen_date'];?>', '<?php echo $row['chosen_time'];?>', '<?php echo $row['tasker_email'];?>')">Accept</button>
-                            <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="taskAccept(false, '<?php echo $row['task_type'];?>', '<?php echo $row['user_email'];?>', '<?php echo $row['chosen_date'];?>', '<?php echo $row['chosen_time'];?>', '<?php echo $row['tasker_email'];?>')">Decline</button>
+                            <button type="button" class="btn btn-success" data-dismiss="modal" onclick="taskAccept(true, '<?php echo $row['duration'];?>', '<?php echo $row['task_type'];?>', '<?php echo $row['user_email'];?>', '<?php echo $row['chosen_date'];?>', '<?php echo $row['chosen_time'];?>', '<?php echo $row['tasker_email'];?>')">Accept</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="taskAccept(false, '<?php echo $row['duration'];?>', '<?php echo $row['task_type'];?>', '<?php echo $row['user_email'];?>', '<?php echo $row['chosen_date'];?>', '<?php echo $row['chosen_time'];?>', '<?php echo $row['tasker_email'];?>')">Decline</button>
                           </div>
                         </div>
                       </div>
@@ -264,7 +264,7 @@
         }
       }
 
-      function taskAccept(x, tasktype, useremail, date, time, taskeremail) {
+      function taskAccept(x, duration, tasktype, useremail, date, time, taskeremail) {
           var user_email = useremail;
           var task_type = tasktype;
           var chosen_date = date;
@@ -279,6 +279,7 @@
           type: "POST",
           url: 'pairing.php',
           data: {user_email: user_email,
+                 duration: duration,
                  tasker_email: tasker_email,
                  task_type: task_type,
                  chosen_date: chosen_date,
