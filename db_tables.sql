@@ -9,7 +9,6 @@ create table tasks (
     task_type varchar(50) primary key
 )
 
--- can only reference primary key of the referenced table
 create table performs (
     email varchar(100),
     task_type varchar(50),

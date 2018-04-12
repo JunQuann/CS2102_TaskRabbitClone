@@ -16,24 +16,41 @@
 
     <body class="bg-light">
 
-      <!-- Navigation -->
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-          <div class="container">
-              <a class="navbar-brand" href="home.php">TaskBunny</a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarResponsive">
-                  <ul class="navbar-nav ml-auto">
-                      <li class="nav-item">
-                          <a class="nav-link" href="#">Home</a>
-                      </li>
-                  </ul>
-              </div>
-          </div>
-      </nav>
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="home.php">TaskBunny</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <?php if ($is_tasker) { ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"></a>
+                            </li>
+                        <?php } ?>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="tasker_dashboard2.php">Dashboard
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item ml-3">
+                            <a class="nav-link btn btn-primary text-white" href="logout.php">Log Out</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
-      <div class="row">
+      <div class="container bg-light">
+        <div class="text-center pb-2">
+          <h3>Manage Task</h3>
+          <p>Select a task to set your hourly rate and availability</p>
+        </div>
+      </div>
+
+      <div class="row mb-5">
         <div class="col-lg-6">
                 <div class="text-center">
                     <label for="button">Choose your available timing for the whole range of date selected</label>
@@ -183,12 +200,6 @@
         </div>
       </div>
 
-      <div class="container bg-light">
-        <div class="text-center pt-5 pb-2">
-          <h3>Manage Task</h3>
-          <p>Select a task to set your hourly rate and availability</p>
-        </div>
-      </div>
 
       <?php
       include('db_connect.php');
@@ -210,6 +221,21 @@
       foreach($tasks as $task):
       ?>
 
+      <?php
+        $email = $_SESSION['email'];
+        $q1 = "SELECT * FROM performs WHERE email = '$email' and task_type = '$task'";
+        $r1 = pg_query($db, $q1);
+        $data = pg_fetch_assoc($r1);
+        $task_details = $data['task_description'];
+        $price = $data['price'];
+        if ($task_details == '') {
+          $task_details = "e.g. I have been mounting TVs for 10 years and I have never had an unssatisfied client";
+        }
+        if ($price == '') {
+          $price = "Set Price";
+        }
+      ?>
+
       <div class="panel panel-default" >
         <div class="panel-heading" role="tab" id="heading<?php echo $x ?>">
           <h4 class="panel-title">
@@ -223,17 +249,20 @@
             </div>
             <div class="input-group mb-3 pb-3" style="width: 200px;">
                <!-- specify pattern -->
-              <input type="text" id="price<?php echo $x; ?>" name="price" class="form-control" placeholder="Price" aria-label="price" aria-describedby="basic-addon2">
+              <input type="text" id="price<?php echo $x; ?>" name="price" class="form-control" placeholder="<?php echo $price?>" aria-label="price" aria-describedby="basic-addon2">
               <div style='display:none'>
                 <input type="text" id="task_type<?php echo $x; ?>" value=<?php echo "'".$task."'"?>>
               </div>
               <div class="input-group-append">
-                <button class="btn btn-outline-secondary" id ="submit" name="submit" type="button" onclick="submitFunction(<?php echo $x; ?>)">Submit</button>
+                <button class="btn btn-outline-secondary" id ="submitPrice" name="submitPrice" type="button" onclick="submitPrice(<?php echo $x; ?>)" pattern="^\d{1,3}$" oninvalid="this.setCustomValidity('Please enter a valid price')">Submit</button>
               </div>
             </div>
             <div class="pt-3">
               <label for="exampleFormControlTextarea1">Describe your qualifications and tell the users why you're a suitable candidate for this task</label>
-              <textarea class="form-control" name="task_details" id="task_details" rows="5" placeholder="Hi! I do things. And I do things" required></textarea>
+              <textarea class="form-control" name="task_details" id="task_details<?php echo $x; ?>" rows="5" placeholder="<?php echo $task_details?>"></textarea>
+              <div class="mt-3">
+                <button class="btn btn-success" id="submitDescription" name="submitDescription" type="button" onclick="submitDescription(<?php echo $x; ?>)">Submit</button>
+              </div>
             </div>
           </div>
         </div>
@@ -245,7 +274,7 @@
   </body>
 
   <script>
-      function submitFunction(x) {
+      function submitPrice(x) {
         var price = document.getElementById("price"+x).value;
         var task_type = document.getElementById("task_type"+x).value;
         if (price == '') {
@@ -256,6 +285,25 @@
             url: 'add_price_availability.php',
             data: {price: price,
                    task_type: task_type
+                  },
+            success: function(data) {
+              alert(data);
+            }
+          });
+        }
+      }
+
+      function submitDescription(x) {
+        var task_details = document.getElementById("task_details"+x).value;
+        var task_type = document.getElementById("task_type"+x).value;
+        if (task_details == '') {
+          alert("Please enter a description");
+        } else {
+          $.ajax({
+            type: "POST",
+            url: 'add_task_details.php',
+            data: {task_details: task_details,
+                   task_type: task_types
                   },
             success: function(data) {
               alert(data);

@@ -38,6 +38,9 @@
                         <a class="nav-link" href="tasker_dashboard2.php">Tasker's Page</a>
                     </li>
                 <?php } ?>
+                    <li class="nav-item ml-5">
+                        <a class="nav-link btn btn-primary text-white" href="logout.php">Log Out</a>
+                    </li>
                 </ul>
             </div>
         </div>

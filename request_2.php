@@ -92,7 +92,8 @@
                             $date = $_SESSION['date'] = $_POST['availableDate'];
                             $task = $_SESSION['task'];
                             $email = $_SESSION['email'];
-                            $q1 = "SELECT distinct name, price, email, task_description FROM performs natural join taskeravailabledatetime natural join taskers WHERE task_type = '$task' and availableDate = '$date' and email <> '$email'";
+                            $q1 = "SELECT distinct name, price, email, task_description FROM performs natural join taskeravailabledatetime natural join taskers WHERE task_type = '$task'
+                            and availableDate = '$date' and email <> '$email'";
                             $r1 = pg_query($db, $q1);
                             $count = 0;
 

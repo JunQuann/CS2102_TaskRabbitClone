@@ -23,9 +23,14 @@
 
 								<div class="form-group">
 									<h4 for="task"> Tasks</h4>
-									<input type="checkbox" name="task[]" value="cleaning"> Cleaning<br>
-  									<input type="checkbox" name="task[]" value="moving and packing" checked="checked">Moving and Packing<br>
-
+									<?php
+										include('db_connect.php');
+										$q1 = "SELECT * FROM tasks";
+										$r1 = pg_query($db, $q1);
+										while($row = pg_fetch_row($r1)) {
+									 ?>
+									<input type="checkbox" name="task[]" value=<?php echo $row[0] ?>> <?php echo $row[0] ?><br>
+								<?php } ?>
 
 								<div class="form-group">
 									<label for="address">Address</label>

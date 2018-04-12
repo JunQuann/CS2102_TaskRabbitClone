@@ -22,7 +22,8 @@
 
             if (isset($_POST['submit'])) {
                 include('db_connect.php');
-                $q1 = "INSERT INTO userTaskerTaskPair VALUES ('$email', '$tasker_email', '$task', '$date', '$time', '$address', '$task_details', '$duration', '$status', '$tasker_name')";
+                $q1 = "INSERT INTO userTaskerTaskPair VALUES ('$email', '$tasker_email', '$task', '$date', '$time', '$address',
+                       '$task_details', '$duration', '$status', '$tasker_name')";
                 $r1 = pg_query($db, $q1);
                 if (!$r1) {
                     echo pg_last_error();
