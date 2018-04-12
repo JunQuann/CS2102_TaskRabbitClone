@@ -9,7 +9,7 @@
 			<div class="row justify-content-md-center h-100">
 				<div class="card-wrapper">
 					<div class="brand">
-						<img src="img/logo.jpg">
+						<img src="img/brand_icon.jpeg">
 					</div>
 
                     <?php include("add_user.php") ?>

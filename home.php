@@ -50,7 +50,7 @@
     <div class="container">
 
         <!-- Jumbotron Header -->
-        <header class="jumbotron my-4">
+        <header class="jumbotron my-4" style="">
         	<h1 class="display-3">Welcome to your Taskboard,<br> <?php echo $_SESSION['name'] ?>!</h1>
         	<p class="lead">You can easily manage your current and future tasks.</p>
         	<a href="request_1.php" class="btn btn-primary btn-lg">Request a Task!</a>
@@ -144,14 +144,14 @@
     			<div class="row">
           			<div class="col-lg-4">
             			<div class="container-fluid">
-              				<img class="img-fluid" src="img/mounting.png" alt="">
+              				<img class="img-fluid" src="img/mounting.jpeg" alt="">
               				<h5>Wall Mounting</h5>
               				<p class="font-weight-light mb-0">Mount a tv, mirror, or picture frame</p>
             			</div>
          		 	</div>
           			<div class="col-lg-4">
             			<div class="container-fluid">
-              				<img class="img-fluid" src="img/truck3.png" alt="">
+              				<img class="img-fluid" src="img/truck3.jpeg" alt="">
               				<h5>Moving and Packing</h5>
               				<p class="font-weight-light mb-0">Just tell us how big your item(s) are and get them moved with ease</p>
             			</div>
@@ -167,21 +167,21 @@
        			<div class="row">
           			<div class="col-lg-4">
             			<div class="container-fluid">
-              				<img class="img-fluid" src="img/dog.png" alt="">
+              				<img class="img-fluid" src="img/dog.jpeg" alt="">
               				<h5>Pet Care</h5>
               				<p class="font-weight-light mb-0">From pet-sitting to pet-walking we've got you covered</p>
            				</div>
           			</div>
           			<div class="col-lg-4">
             			<div class="container-fluid">
-             				<img class="img-fluid" src="img/assembly2.png" alt="">
+             				<img class="img-fluid" src="img/assembly2.jpeg" alt="">
               				<h5>Assembling Furniture</h5>
               				<p class="font-weight-light mb-0">Let our professional taskers put your furniture together</p>
             			</div>
           			</div>
           			<div class="col-lg-4">
             			<div class="container-fluid">
-              				<img class="img-fluid" src="img/tools2.png" alt="">
+              				<img class="img-fluid" src="img/tools2.jpeg" alt="">
               				<h5>General Handyman</h5>
               				<p class="font-weight-light mb-0">We'll match you up with a tasker that has the tools needed for your home maintenance</p>
             			</div>

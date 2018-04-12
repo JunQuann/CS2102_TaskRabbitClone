@@ -19,7 +19,7 @@
         <div class="row">
           <div class="col-xl-9 mx-auto">
             <h1 class="mb-5">Join Your Community of Taskers and Requesters</h1>
-            <a href="register.php" role="button" class="btn btn-success mx-auto">Sign up here!</a>
+            <a href="register.php" role="button" class="btn btn-success btn-lg mx-auto">Sign up here!</a>
           </div>
           </div>
         </div>

@@ -234,6 +234,11 @@
         if ($price == '') {
           $price = "Set Price";
         }
+
+        $q2 = "SELECT avg(price) AS avg_price FROM performs WHERE task_type = '$task'";
+        $r2 = pg_query($db, $q2);
+        $data2 = pg_fetch_assoc($r2);
+        $avg_price = (int) $data2['avg_price'];
       ?>
 
       <div class="panel panel-default" >
@@ -246,6 +251,7 @@
           <div class="panel-body">
             <div class="pt-3">
               <p for="price">Set Desired Hourly Rate</p>
+              <p><b>Note:</b> The average rate for this job on this website is <span>$<?php echo $avg_price?></span></p>
             </div>
             <div class="input-group mb-3 pb-3" style="width: 200px;">
                <!-- specify pattern -->

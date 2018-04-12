@@ -13,7 +13,7 @@ session_start();
 				<div class="card-wrapper">
 					<div class="brand">
 						<a href="index.php">
-						<img src="img/logo.jpg">
+						<img src="img/brand_icon.jpeg">
 						</a>
 					</div>
 
