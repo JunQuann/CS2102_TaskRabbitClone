@@ -11,7 +11,6 @@
         <a class="navbar-brand text-white" href="#">Task Bunny</a>
         <a class="btn btn-primary" href="sign_in.php">Sign In</a>
       </div>
-        <a class="btn btn-primary" href="register.php">Register</a>
     </nav>
 
     <!-- Masthead -->
@@ -21,22 +20,10 @@
         <div class="row">
           <div class="col-xl-9 mx-auto">
             <h1 class="mb-5">Join Your Community of Taskers and Requesters</h1>
+            <a href="register.php" role="button" class="btn btn-success mx-auto">Sign up here!</a>
           </div>
-          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-            <form>
-              <div class="form-row">
-                <div class="col-12 col-md-9 mb-2 mb-md-0">
-                </div>
-                <div class="col-12 col-md-3">
-                  <button type="submit" class="btn btn-block btn-lg btn-primary">Sign up!</button>
-                </div>
-              </div>
-            </form>
-            </form>
-
           </div>
         </div>
-      </div>
     </header>
 
     <!-- Icons Grid -->
@@ -129,30 +116,6 @@
               <h5>Sarah	W.</h5>
               <p class="font-weight-light mb-0">"I can't believe how easy Task Bunny makes it to find someone to help with my groceries!"</p>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Call to Action -->
-    <section class="call-to-action text-white text-center">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row">
-          <div class="col-xl-9 mx-auto">
-            <h2 class="mb-4">Ready to get started? Sign up now!</h2>
-          </div>
-          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-            <form>
-              <div class="form-row">
-                <div class="col-12 col-md-9 mb-2 mb-md-0">
-                  <input type="email" class="form-control form-control-lg" placeholder="Enter your email...">
-                </div>
-                <div class="col-12 col-md-3">
-                  <button type="submit" class="btn btn-block btn-lg btn-primary">Sign up!</button>
-                </div>
-              </div>
-            </form>
           </div>
         </div>
       </div>
