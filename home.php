@@ -35,7 +35,7 @@
                     </li>
                 <?php if ($is_tasker) { ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="tasker_dashboard.php">Tasker's Page</a>
+                        <a class="nav-link" href="tasker_dashboard2.php">Tasker's Page</a>
                     </li>
                 <?php } ?>
                 </ul>
@@ -48,7 +48,7 @@
 
         <!-- Jumbotron Header -->
         <header class="jumbotron my-4">
-        	<h1 class="display-3">Welcome to your Taskboard, <?php echo $_SESSION['name'] ?>!</h1>
+        	<h1 class="display-3">Welcome to your Taskboard,<br> <?php echo $_SESSION['name'] ?>!</h1>
         	<p class="lead">You can easily manage your current and future tasks.</p>
         	<a href="request_1.php" class="btn btn-primary btn-lg">Request a Task!</a>
         <?php if (!$is_tasker) { ?>
@@ -106,7 +106,15 @@
                                             ?></td>
                                             <td><?php echo $row['tasker'] ?></td>
                                             <td><?php echo $row['address'] ?></td>
-                                            <td><?php echo $row['status'] ?></td>
+                                            <?php if ($row['status'] == 'PENDING') { ?>
+                                            <td><?php echo '<span style="color:orange">Pending</span>'?></td>
+                                            <?php }?>
+                                            <?php if ($row['status'] == 'ACCEPTED') { ?>
+                                            <td><?php echo '<span style="color:green">Accepted</span>'?></td>
+                                            <?php }?>
+                                            <?php if ($row['status'] == 'REJECTED') { ?>
+                                            <td><?php echo '<span style="color:red">Declined</span>'?></td>
+                                            <?php }?>
                                         </tr>
                                     </tbody>
                                     <?php
@@ -127,7 +135,7 @@
         </div>
 	</div>
         <!-- Page Features -->
-    	<section class="page-header">
+    	<section class="page-header mb-5">
     		<div class="container">
     			<h2 class="mb-5">Learn about our tasks</h2>
     			<div class="row">
@@ -179,9 +187,9 @@
       		</div>
     	</section>
 
-        
-        
-        
+
+
+
         <!-- /.row -->
 
 
