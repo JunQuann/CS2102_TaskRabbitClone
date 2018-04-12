@@ -8,34 +8,12 @@ body {
     padding-top: 54px;
 }
 
-
-
 @media (min-width: 992px) {
     body {
         padding-top: 56px;
     }
 }
 
-.jumbotron {
-	color: black;
-	background-image: url("../img/blue.png");
-	background-size: cover;
-	text-align: center;
+.card {
+    height: 100%;
 }
-
-.column {
-    float: left;
-    width: 33.33%;
-    img: 100px;
-
-}
-
-.column {
-    float: center;
-    width: 33.33%;
-}
-
-
-
-
-
